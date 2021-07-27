@@ -5,15 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
 </head>
 <body>
     <div>
         <h1>Weather!</h1>
     </div>
     <div id="weatherBoard">
-        <h4>This Weekend's Weather</h4>
+        <h4>Current Weather</h4>
         <p><span id="description"></span></p>
         <p><span id="temp"></span></p>
+        <p><span id="today"></span></p>
+    </div>
+    <!-- Weekend Weather -->
+    <div class="container">
+        <h2>Weekend Weather</h2>
+        <div class ="row" id="threeDays">
+        </div>
     </div>
     <script src="assets/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
