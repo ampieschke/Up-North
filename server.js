@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const routes = require("./app/routes/api-routes");
 
 const PORT = process.env.PORT || 8080;
 
@@ -15,7 +16,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/checklist", {
   useFindAndModify: false,
 });
 
-require("./app/routes/api-routes.js")(app);
+app.use(routes);
 
 app.listen(PORT, () =>
   console.log(`Server listening on: http://localhost:${PORT}`)
