@@ -1,8 +1,8 @@
 const orm = require("../config/orm.js");
 
 const todo = {
-  selectAll(cb) {
-    orm.selectAll("checklist", (res) => cb(res));
+  selectAll() {
+    orm.selectAll("checklist", (res) => res);
   },
   insertOne(cols, vals, cb) {
     orm.insertOne("checklist", cols, vals, (res) => cb(res));

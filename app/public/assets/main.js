@@ -66,56 +66,6 @@ $(document).ready(() => {
         weekendWeather.push(dWeath);
         console.log(weekendWeather);
       }
-
-      //TESTER DATA!!!!!!
-      // $("#today").text("Friday is " + fri);
-      // let friTemp = Math.floor(
-      //   (response.daily[fri].temp.day - 273.15) * 1.8 + 32
-      // );
-      // console.log(friTemp);
-      // let satTemp = Math.floor(
-      //   (response.daily[sat].temp.day - 273.15) * 1.8 + 32
-      // );
-      // console.log(satTemp);
-      // let sunTemp = Math.floor(
-      //   (response.daily[sun].temp.day - 273.15) * 1.8 + 32
-      // );
-      // console.log(sunTemp);
-
-      //  Function to grab weekend weather
-    });
-  }
-
-  ////ADD TODOs/////
-  const createToDoBtn = document.getElementById("create-form");
-
-  if (createToDoBtn) {
-    createToDoBtn.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      // Grabs the value of the textarea that goes by the name, "quote"
-      const newTodo = {
-        todo: document.getElementById("td").value.trim(),
-      };
-
-      // Send POST request to create a new quote
-      fetch("/api/checklist", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-
-        // make sure to serialize the JSON body
-        body: JSON.stringify(newTodo),
-      }).then(() => {
-        // Empty the form
-        document.getElementById("td").value = "";
-
-        // Reload the page so the user can see the new quote
-        console.log("Created a new ToDo!");
-        location.reload();
-      });
     });
   }
 });

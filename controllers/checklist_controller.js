@@ -1,22 +1,10 @@
 const express = require("express");
-const todo = require("../models/todo.js");
+const todo = require("../app/models/todo.js");
 const router = express.Router();
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/", (req, res) => {
-  todo.selectAll((data) => {
-    const hbsObject = {
-      todo: data,
-    };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
-  });
-});
-
-router.post("/api/checklist", (req, res) => {
-  todo.insertOne(["todo_name", "done"], [req.body.todo, 0], (result) => {
-    res.json({ id: result.insertId });
-  });
+router.get("/api/all", (req, res) => {
+  todo.selectAll().then((result) => res.json(result));
 });
 
 router.put("/api/checklist/:id", (req, res) => {

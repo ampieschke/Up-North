@@ -3,7 +3,7 @@ const express = require("express");
 
 const app = express();
 
-app.use(express.static("public"));
+app.use(express.static("app/public"));
 
 const PORT = process.env.PORT || 8080;
 
@@ -12,7 +12,7 @@ app.use(express.json());
 
 const routes = require("./controllers/checklist_controller.js");
 
-app.use(routes);
+require("./app/routes/api-routes.js")(app);
 
 app.listen(PORT, () =>
   console.log(`Server listening on: http://localhost:${PORT}`)
