@@ -1,16 +1,19 @@
 const express = require("express");
-// const mysql = require("mysql");
-
-const app = express();
-
-app.use(express.static("app/public"));
+const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 8080;
+
+const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const routes = require("./controllers/checklist_controller.js");
+app.use(express.static("app/public"));
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/checklist", {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+});
 
 require("./app/routes/api-routes.js")(app);
 
