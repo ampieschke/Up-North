@@ -15,8 +15,7 @@ function populateChecklist() {
   items.forEach((item) => {
     const pi = document.createElement("pi");
     pi.innerHTML = `
-      <td>${item.name}</td>
-      <td>${item.done}</td>
+      <td>${item.name}<button class="delete" id=${item._id}>Check</button></td><hr><br>
     `;
 
     theList.appendChild(pi);
@@ -24,19 +23,14 @@ function populateChecklist() {
 }
 
 function sendItem() {
-  const nameEl = document.querySelector("#td");
+  const nameEl = document.querySelector("#td").value;
 
-  // validate form
-  if (nameEl.value === "") {
-    errorEl.textContent = "Enter an Item!";
-    return;
-  } else {
-    errorEl.textContent = "";
-  }
+  console.log("hi");
+  console.log(nameEl);
 
   // create record
   const item = {
-    name: nameEl.value,
+    name: nameEl,
     done: false,
     date: new Date().toISOString(),
   };
@@ -57,23 +51,40 @@ function sendItem() {
     },
   })
     .then((response) => response.json())
-    .then((data) => {
-      if (data.errors) {
-        errorEl.textContent = "Missing Information";
-      } else {
-        // clear form
-        nameEl.value = "";
-      }
-    })
     .catch((err) => {
       // fetch failed, so save in indexed db
-      saveRecord(transaction);
+      sendItem(item);
 
       // clear form
       nameEl.value = "";
-      amountEl.value = "";
     });
 }
+
+theList.addEventListener("click", function (e) {
+  if (e.target.matches(".delete")) {
+    console.log("4");
+    element = e.target;
+    donezo.push(element);
+    console.log(donezo);
+    id = element.getAttribute("id");
+    fetch("/api/" + id, {
+      method: "delete",
+    })
+      .then(function (response) {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
+        element.parentNode.remove();
+      })
+      .catch(function (err) {
+        console.log("Fetch Error :-S", err);
+      });
+  }
+  populateChecklist();
+});
 
 document.querySelector("#add-btn").addEventListener("click", function (event) {
   event.preventDefault();

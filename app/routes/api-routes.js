@@ -32,4 +32,10 @@ router.get("/api/item", (req, res) => {
     });
 });
 
+router.delete("/api/:id", (req, res) => {
+  Item.deleteOne({
+    _id: req.params.id,
+  }).then(console.log("3"));
+});
+
 module.exports = router;
