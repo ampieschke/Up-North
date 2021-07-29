@@ -63,8 +63,6 @@ theList.addEventListener("click", function (e) {
 
 document.querySelector("#add-btn").addEventListener("click", function (event) {
   event.preventDefault();
-  console.log("HERE");
-  // sendItem(true);
   element = event.target;
   data_id = element.getAttribute("data-id");
   fetch("/api/item", {
@@ -81,4 +79,6 @@ document.querySelector("#add-btn").addEventListener("click", function (event) {
   })
     .then((res) => res.json())
     .then((res) => newItemSnippet([res]));
+  const addSpot = document.getElementById("td");
+  addSpot.value = "";
 });
