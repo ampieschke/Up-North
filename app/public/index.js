@@ -26,7 +26,8 @@ function newItemSnippet(response) {
     <p class="data-entry">
     <span class = "dataTitle" data-id=${data_id}>${name}</span>
     <span onClick = "delete" class="delete" data-id=${data_id}>x</span>
-    </p>`;
+    </p>
+    <hr>`;
     todoList.insertAdjacentHTML("beforeend", snippet);
   }
 }
@@ -62,6 +63,7 @@ theList.addEventListener("click", function (e) {
 
 document.querySelector("#add-btn").addEventListener("click", function (event) {
   event.preventDefault();
+  console.log("HERE");
   // sendItem(true);
   element = event.target;
   data_id = element.getAttribute("data-id");

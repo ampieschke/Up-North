@@ -67,17 +67,26 @@ $(document).ready(() => {
         weekendWeather.push(dWeath);
         weekendTemps.push(dTemp);
         if (weekendTemps[1] > 65) {
-          const addButton = document.getElementById("btntoggle");
-          addButton.innerHTML = "";
-          $("#btntoggle").append(`
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn">Add a Warm Weather Item!</button>
-              `);
+          console.log("Warm!");
+          var bg = document.querySelector("body");
+          bg.setAttribute("class", "warm");
+          // const addButton = document.getElementById("btntoggle");
+          // addButton.innerHTML = "";
+          // $("#btntoggle").append(`
+          // <input type="text" id="td" placeholder="Add an Item">
+          // <button type="submit" class="btn btn-primary btn-md" id="add-btn">
+          //   <span class="fa fa-fire"></span> Add an Item</button>
+          //     `);
         } else if (weekendTemps[1] < 65) {
-          const addButton = document.getElementById("btntoggle");
-          addButton.innerHTML = "";
-          $("#btntoggle").append(`
-              <button type="submit" class="btn btn-primary btn-md" id="add-btn">Add a Cold Weather Item!</button>
-              `);
+          console.log("Cold!");
+          bg.setAttribute("class", "cold");
+          // const addButton = document.getElementById("btntoggle");
+          // addButton.innerHTML = "";
+          // $("#btntoggle").append(`
+          // <input type="text" id="td" placeholder="Add an Item">
+          // <button type="submit" class="btn btn-primary btn-md" id="add-btn">
+          //   <span class="fa fa-fire"></span> Add an Item</button>
+          //     `);
         }
       }
     });
