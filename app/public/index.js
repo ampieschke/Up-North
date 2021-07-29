@@ -24,8 +24,8 @@ function newItemSnippet(response) {
     let todoList = document.getElementById("theList");
     snippet = `
     <p class="data-entry">
-    <span class = "dataTitle" data-id=${data_id}>${name}</span>
-    <span onClick = "delete" class="delete" data-id=${data_id}>x</span>
+    <span class="dataTitle" data-id=${data_id}>${name}</span>
+    <span onClick="delete" class="delete" data-id=${data_id}> X </span>
     </p>
     <hr>`;
     todoList.insertAdjacentHTML("beforeend", snippet);

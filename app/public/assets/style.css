@@ -5,15 +5,43 @@
 --honey-yellow: #f6ae2dff;
 --mellow-apricot: #ffb86fff; */
 
+.navbar{
+background-color: #8a716aff !important;
+background: linear-gradient(
+  to bottom,
+  #204b57ff 20%,
+  #729ea1ff 20%,
+  #729ea1ff 40%,
+  #8a716aff 40%,
+  #8a716aff 60%,
+  #f6ae2dff 60%,
+  #f6ae2dff 80%,
+  #ffb86fff 80%
+);
+background-size:100px;
+}
+
+#weatherboard{
+  /* background-image: url("./images/dock.jpg"); */
+  background-color: #cccccc;
+
+}
+
 body.cold{
   background-color: #204b57;
 }
 
 body.warm{
-  background-color: #F6AE2D;
+  background-color: #FFB86F;
 }
 
 #add-btn{
+  border-left: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.delete{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -24,5 +52,24 @@ input{
 }
 
 .dataTitle{
-  padding-left: 20px;
+  padding-left: 20%;
+}
+
+.a{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 80px;
+  color: white;
+  text-align: center;
+}
+
+h2{
+  color: white;
+  font-family:'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+#wicon{
+  border-right: white 1px solid;
+
 }

@@ -2,6 +2,7 @@ $(document).ready(() => {
   getWeather();
 
   let fri = 0;
+  let day = 0;
   let weekendWeather = []; //This will store the array of weather to determine css for display
   let weekendTemps = []; //Store Weekend Temperature to determine which packlist to use
 
@@ -49,25 +50,40 @@ $(document).ready(() => {
       }
 
       for (let i = fri; i < 3 + fri; i++) {
-        console.log(i);
         let dTemp = Math.floor(
           (response.daily[i].temp.day - 273.15) * 1.8 + 32
         );
         let dWeath = response.daily[i].weather[0].main;
-        console.log(dTemp);
         let iconcode = response.daily[i].weather[0].icon;
         let iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-        console.log(iconurl);
+
+        switch (i) {
+          case 0:
+            day = "FRI";
+            break;
+          case 1:
+            day = "SAT";
+            break;
+          case 2:
+            day = "SUN";
+        }
+
         $("#threeDays").append(`
-          <div class="col-4 col-lg-2 day">
-            <p class = "day">${dTemp} Degrees</p>
-            <p class = "day">${dWeath}</p>
-            <img id="wicon" src="${iconurl}" alt="Weather icon">
+          <div class="col-4 col-lg-2">
+             <p class ="a">${day} <p>
+            <div class="row day">
+              <div class="col-4">
+                <img id="wicon" src="${iconurl}" alt="Weather icon">
+              </div>
+              <div class="col-8">
+                <p>${dTemp} Degrees</p>
+                <p>${dWeath}</p>
+              </div>
+            </div>
           </div>`);
         weekendWeather.push(dWeath);
         weekendTemps.push(dTemp);
         if (weekendTemps[1] > 65) {
-          console.log("Warm!");
           var bg = document.querySelector("body");
           bg.setAttribute("class", "warm");
           // const addButton = document.getElementById("btntoggle");
@@ -78,7 +94,6 @@ $(document).ready(() => {
           //   <span class="fa fa-fire"></span> Add an Item</button>
           //     `);
         } else if (weekendTemps[1] < 65) {
-          console.log("Cold!");
           bg.setAttribute("class", "cold");
           // const addButton = document.getElementById("btntoggle");
           // addButton.innerHTML = "";
