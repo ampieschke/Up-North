@@ -32,10 +32,33 @@ router.get("/api/item", (req, res) => {
     });
 });
 
+router.get("api/undone", (req, res) => {
+  Item.find({ done: false })
+    .sort({ date: -1 })
+    .then((dbItem) => {
+      res.json(dbItem);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
+
+router.get("api/:done", (req, res) => {
+  Item.where("done")
+    .equals(true)
+    .sort({ date: -1 })
+    .then((dbItem) => {
+      res.json(dbItem);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
+
 router.delete("/api/:id", (req, res) => {
   Item.deleteOne({
     _id: req.params.id,
-  }).then(console.log("3"));
+  }).then(console.log("DELETED!"));
 });
 
 module.exports = router;

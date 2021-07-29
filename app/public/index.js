@@ -1,31 +1,58 @@
 let items = [];
 
-fetch("/api/item")
-  .then((response) => response.json())
-  .then((data) => {
-    // save db data on global variable
-    items = data;
-    populateChecklist();
-  });
-
-function populateChecklist() {
-  const theList = document.querySelector("#theList");
-  theList.innerHTML = "";
-
-  items.forEach((item) => {
-    const pi = document.createElement("pi");
-    pi.innerHTML = `
-      <td>${item.name}<button class="delete" id=${item._id}>Check</button></td><hr><br>
-    `;
-
-    theList.appendChild(pi);
-  });
+function getResults() {
+  clearTodos();
+  fetch("/api/item")
+    .then(function (response) {
+      if (response.status !== 200) {
+        console.log(
+          "Looks like there was a problem. Status Code: " + response.status
+        );
+        return;
+      }
+      response.json().then(function (data) {
+        populateChecklist(data);
+      });
+    })
+    .catch(function (err) {
+      console.log("Fetch Error :-S", err);
+    });
 }
+
+function populateChecklist(res) {
+  // const theList = document.querySelector("#theList");
+  // theList.innerHTML = "";
+  // items.forEach((item) => {
+  //   const pi = document.createElement("pi");
+  //   pi.innerHTML = `
+  //     <span>${item.name}<button class="delete" id=${item._id}>Check</button></span><hr><br>
+  //   `;
+
+  //   theList.appendChild(pi);
+  // });
+
+  for (var i = 0; i < res.length; i++) {
+    let data_id = res[i]["_id"];
+    let name = res[i]["name"];
+    let todoList = document.getElementById("theList");
+    snippet = `
+    <p class="data-entry">
+    <span class = "dataTitle" data-id=${data_id}>${name}</span>
+    <span onClick = "delete" class="delete" data-id=${data_id}>x</span>
+    </p>`;
+    todoList.insertAdjacentHTML("beforeend", snippet);
+  }
+}
+
+function clearTodos() {
+  const todoList = document.getElementById("theList");
+  todoList.innerHTML = "";
+}
+
+getResults();
 
 function sendItem() {
   const nameEl = document.querySelector("#td").value;
-
-  console.log("hi");
   console.log(nameEl);
 
   // create record
@@ -54,9 +81,6 @@ function sendItem() {
     .catch((err) => {
       // fetch failed, so save in indexed db
       sendItem(item);
-
-      // clear form
-      nameEl.value = "";
     });
 }
 
@@ -64,9 +88,8 @@ theList.addEventListener("click", function (e) {
   if (e.target.matches(".delete")) {
     console.log("4");
     element = e.target;
-    donezo.push(element);
-    console.log(donezo);
-    id = element.getAttribute("id");
+    element.parentNode.remove();
+    id = element.getAttribute("data-id");
     fetch("/api/" + id, {
       method: "delete",
     })
@@ -77,7 +100,6 @@ theList.addEventListener("click", function (e) {
           );
           return;
         }
-        element.parentNode.remove();
       })
       .catch(function (err) {
         console.log("Fetch Error :-S", err);
