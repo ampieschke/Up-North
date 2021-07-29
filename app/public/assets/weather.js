@@ -3,6 +3,7 @@ $(document).ready(() => {
 
   let fri = 0;
   let weekendWeather = []; //This will store the array of weather to determine css for display
+  let weekendTemps = []; //Store Weekend Temperature to determine which packlist to use
 
   function getWeather() {
     //Call API for weather JSON File
@@ -64,7 +65,20 @@ $(document).ready(() => {
             <img id="wicon" src="${iconurl}" alt="Weather icon">
           </div>`);
         weekendWeather.push(dWeath);
-        console.log(weekendWeather);
+        weekendTemps.push(dTemp);
+        if (weekendTemps[1] > 65) {
+          const addButton = document.getElementById("btntoggle");
+          addButton.innerHTML = "";
+          $("#btntoggle").append(`
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn">Add a Warm Weather Item!</button>
+              `);
+        } else if (weekendTemps[1] < 65) {
+          const addButton = document.getElementById("btntoggle");
+          addButton.innerHTML = "";
+          $("#btntoggle").append(`
+              <button type="submit" class="btn btn-primary btn-md" id="add-btn">Add a Cold Weather Item!</button>
+              `);
+        }
       }
     });
   }

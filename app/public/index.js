@@ -37,39 +37,6 @@ function clearTodos() {
 }
 getResults();
 
-// function sendItem() {
-//   const nameEl = document.querySelector("#td").value;
-//   console.log(nameEl);
-
-//   // create record
-//   const item = {
-//     name: nameEl,
-//     done: false,
-//     date: new Date().toISOString(),
-//   };
-
-//   // add to beginning of current array of data
-//   // items.unshift(item);
-
-//   // re-run logic to populate ui with new record
-//   // populateChecklist();
-
-//   // also send to server
-//   fetch("/api/item", {
-//     method: "POST",
-//     body: JSON.stringify(item),
-//     headers: {
-//       Accept: "application/json, text/plain, */*",
-//       "Content-Type": "application/json",
-//     },
-//   })
-//     .then((response) => response.json())
-//     .catch((err) => {
-//       // fetch failed, so save in indexed db
-//       sendItem(item);
-//     });
-// }
-
 theList.addEventListener("click", function (e) {
   if (e.target.matches(".delete")) {
     console.log("4");
