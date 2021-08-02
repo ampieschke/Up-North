@@ -2,7 +2,7 @@ $(document).ready(() => {
   getWeather();
 
   let fri = 0;
-  let day = 0;
+  let day;
   let weekendWeather = []; //This will store the array of weather to determine css for display
   let weekendTemps = []; //Store Weekend Temperature to determine which packlist to use
 
@@ -49,14 +49,8 @@ $(document).ready(() => {
           fri = 5;
       }
 
-      for (let i = fri; i < 3 + fri; i++) {
-        let dTemp = Math.floor(
-          (response.daily[i].temp.day - 273.15) * 1.8 + 32
-        );
-        let dWeath = response.daily[i].weather[0].main;
-        let iconcode = response.daily[i].weather[0].icon;
-        let iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
-
+      //Set the Days of the week
+      for (let i = 0; i < 3; i++) {
         switch (i) {
           case 0:
             day = "FRI";
@@ -67,10 +61,23 @@ $(document).ready(() => {
           case 2:
             day = "SUN";
         }
+        $("#threeDays").append(`
+          <div class="col-4">
+             <p class ="a">${day} <p>
+             </div>`);
+      }
+
+      //Display Weather
+      for (let i = fri; i < 3 + fri; i++) {
+        let dTemp = Math.floor(
+          (response.daily[i].temp.day - 273.15) * 1.8 + 32
+        );
+        let dWeath = response.daily[i].weather[0].main;
+        let iconcode = response.daily[i].weather[0].icon;
+        let iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
 
         $("#threeDays").append(`
-          <div class="col-4 col-lg-2">
-             <p class ="a">${day} <p>
+          <div class="col-4">
             <div class="row day">
               <div class="col-4">
                 <img id="wicon" src="${iconurl}" alt="Weather icon">
