@@ -25,6 +25,7 @@ function newItemSnippet(response) {
     snippet = `
     <p class="data-entry">
     <span class="dataTitle" data-id=${data_id}>${name}</span>
+    <span class="pack" data-id=${data_id}> PACK </span>
     <span onClick="delete" class="delete" data-id=${data_id}> X </span>
     </p>
     <hr>`;
@@ -40,12 +41,34 @@ getResults();
 
 theList.addEventListener("click", function (e) {
   if (e.target.matches(".delete")) {
-    console.log("4");
     element = e.target;
     element.parentNode.remove();
     id = element.getAttribute("data-id");
     fetch("/api/" + id, {
       method: "delete",
+    })
+      .then(function (response) {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
+      })
+      .catch(function (err) {
+        console.log("Fetch Error :-S", err);
+      });
+  }
+});
+
+theList.addEventListener("click", function (e) {
+  if (e.target.matches(".pack")) {
+    element = e.target;
+    element.parentNode.remove();
+    id = element.getAttribute("data-id");
+    console.log(id);
+    fetch("/api/" + id, {
+      method: "put",
     })
       .then(function (response) {
         if (response.status !== 200) {

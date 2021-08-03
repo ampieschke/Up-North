@@ -62,7 +62,7 @@ $(document).ready(() => {
             day = "SUN";
         }
         $("#threeDays").append(`
-          <div class="col-4">
+          <div class="col-4 day">
              <p class ="a">${day} <p>
              </div>`);
       }

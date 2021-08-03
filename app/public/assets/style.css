@@ -47,6 +47,16 @@ body.warm{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+.pack{
+  border-left: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  margin-left: 10px;
+  padding-left: 10px;
 }
 
 input{
@@ -76,7 +86,7 @@ h2{
 
 }
 
-/* HEREHREHREHRER */
+/* Input Styling */
 .to-bring-input {
   width: 500px;
   padding: 20px, 10px;

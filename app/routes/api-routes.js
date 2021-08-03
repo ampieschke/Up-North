@@ -21,6 +21,19 @@ router.post("/api/item/bulk", ({ body }, res) => {
     });
 });
 
+router.put("/api/:id", (req, res) => {
+  Item.updateOne(
+    {
+      _id: req.params.id,
+    },
+    { $set: { done: true } }
+  )
+    .then(console.log("Packed!"))
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
+
 router.get("/api/item", (req, res) => {
   Item.find({})
     .sort({ date: -1 })
@@ -55,10 +68,14 @@ router.get("api/:done", (req, res) => {
     });
 });
 
-router.delete("/api/:id", (req, res) => {
-  Item.deleteOne({
-    _id: req.params.id,
-  }).then(console.log("DELETED!"));
-});
+router
+  .delete("/api/:id", (req, res) => {
+    Item.deleteOne({
+      _id: req.params.id,
+    }).then(console.log("DELETED!"));
+  })
+  .catch((err) => {
+    res.status(400).json(err);
+  });
 
 module.exports = router;
