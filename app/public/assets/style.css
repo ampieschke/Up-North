@@ -36,9 +36,11 @@ body.warm{
 }
 
 #add-btn{
-  border-left: 1px solid black;
+  /* border-left: 1px solid black;
   border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-bottom-right-radius: 15px; */
+  background-color: #729ea1ff;
+  border: none;
 }
 
 .delete{
@@ -88,6 +90,7 @@ h2{
   margin: 0 0 20px 0;
   padding: 0;
   box-sizing: border-box;
+  color: #204b57ff;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -99,6 +102,9 @@ h2{
   font-size: 18px;
   border-bottom: solid 1px #efefef;
   font-family: 'Roboto', sans-serif;
+  /* opacity: 10%; */
+  background-color: #FFB86F;
+  
 }
 
 .float-label-field label {
