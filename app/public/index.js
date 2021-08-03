@@ -1,5 +1,5 @@
 function getResults() {
-  clearTodos();
+  clearPacklist();
   fetch("/api/item")
     .then(function (response) {
       if (response.status !== 200) {
@@ -21,25 +21,60 @@ function newItemSnippet(response) {
   for (var i = 0; i < response.length; i++) {
     let data_id = response[i]["_id"];
     let name = response[i]["name"];
+    let done = response[i]["done"];
     let todoList = document.getElementById("theList");
-    snippet = `
+    toPacksnippet = `
     <p class="data-entry">
     <span class="dataTitle" data-id=${data_id}>${name}</span>
     <span class="pack" data-id=${data_id}> PACK </span>
     <span onClick="delete" class="delete" data-id=${data_id}> X </span>
+    <span>${done}<span>
     </p>
     <hr>`;
-    todoList.insertAdjacentHTML("beforeend", snippet);
+    packedSnippet = `
+    <p class="data-entry">
+    <span class="dataTitle" data-id=${data_id}>${name}</span>
+    <span class="unPack" data-id=${data_id}> unPACK </span>
+    <span onClick="delete" class="delete" data-id=${data_id}> X </span>
+    <span>${done}<span>
+    </p>
+    <hr>
+    `;
+    if (done === false) {
+      todoList.insertAdjacentHTML("beforeend", toPacksnippet);
+    } else if (done === true) {
+      packed.insertAdjacentHTML("beforeend", packedSnippet);
+    }
   }
 }
 
-function clearTodos() {
+// function packedItemSnippet(response) {
+//   for (var i = 0; i < response.length; i++) {
+//     let data_id = resposne[i]["_id"];
+//     let name = response[i]["name"];
+//     let done = response[i]["done"];
+//     let packed = document.getElementById("packed");
+//     snippet = `
+//     <p class="data-entry">
+//     <span class="dataTitle" data-id=${data_id}>${name}</span>
+//     <span class="unPack" data-id=${data_id}> unPACK </span>
+//     <span onClick="delete" class="delete" data-id=${data_id}> X </span>
+//     <span>${done}<span>
+//     </p>
+//     <hr>`;
+//     packed.insertAdjacentHTML("beforeend", snippet);
+//   }
+// }
+
+function clearPacklist() {
   const todoList = document.getElementById("theList");
+  const packedList = document.getElementById("packed");
   todoList.innerHTML = "";
+  packedList.innerHTML = "";
 }
 getResults();
 
-theList.addEventListener("click", function (e) {
+allOfIt.addEventListener("click", function (e) {
   if (e.target.matches(".delete")) {
     element = e.target;
     element.parentNode.remove();
@@ -82,6 +117,34 @@ theList.addEventListener("click", function (e) {
         console.log("Fetch Error :-S", err);
       });
   }
+  clearPacklist();
+  getResults();
+});
+
+packed.addEventListener("click", function (e) {
+  if (e.target.matches(".unPack")) {
+    console.log("HI");
+    element = e.target;
+    element.parentNode.remove();
+    id = element.getAttribute("data-id");
+    console.log(id);
+    fetch("/api/" + id, {
+      method: "put",
+    })
+      .then(function (response) {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
+      })
+      .catch(function (err) {
+        console.log("Fetch Error :-S", err);
+      });
+  }
+  clearPacklist();
+  getResults();
 });
 
 document.querySelector("#add-btn").addEventListener("click", function (event) {

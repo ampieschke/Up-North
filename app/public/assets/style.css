@@ -59,6 +59,14 @@ body.warm{
   padding-left: 10px;
 }
 
+.unPack{
+  border-left: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
 input{
   height: 38px;
 }
@@ -85,6 +93,11 @@ h2{
   border-right: white 1px solid;
 
 }
+
+#inStock{
+  margin-top: 50px;
+}
+
 
 /* Input Styling */
 .to-bring-input {

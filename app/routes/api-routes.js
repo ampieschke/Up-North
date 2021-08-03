@@ -34,6 +34,20 @@ router.put("/api/:id", (req, res) => {
     });
 });
 
+router.put("/api/:id", (req, res) => {
+  Item.updateOne(
+    {
+      _id: req.params.id,
+      done: true,
+    },
+    { $set: { done: false } }
+  )
+    .then(console.log("unPacked!"))
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
+
 router.get("/api/item", (req, res) => {
   Item.find({})
     .sort({ date: -1 })
@@ -45,37 +59,37 @@ router.get("/api/item", (req, res) => {
     });
 });
 
-router.get("api/undone", (req, res) => {
-  Item.find({ done: false })
-    .sort({ date: -1 })
-    .then((dbItem) => {
-      res.json(dbItem);
-    })
-    .catch((err) => {
-      res.status(400).json(err);
-    });
-});
+// router.get("api/undone", (req, res) => {
+//   Item.find({ done: false })
+//     .sort({ date: -1 })
+//     .then((dbItem) => {
+//       res.json(dbItem);
+//     })
+//     .catch((err) => {
+//       res.status(400).json(err);
+//     });
+// });
 
-router.get("api/:done", (req, res) => {
-  Item.where("done")
-    .equals(true)
-    .sort({ date: -1 })
-    .then((dbItem) => {
-      res.json(dbItem);
-    })
-    .catch((err) => {
-      res.status(400).json(err);
-    });
-});
+// router.get("api/:done", (req, res) => {
+//   Item.where("done")
+//     .equals(true)
+//     .sort({ date: -1 })
+//     .then((dbItem) => {
+//       res.json(dbItem);
+//     })
+//     .catch((err) => {
+//       res.status(400).json(err);
+//     });
+// });
 
-router
-  .delete("/api/:id", (req, res) => {
-    Item.deleteOne({
-      _id: req.params.id,
-    }).then(console.log("DELETED!"));
+router.delete("/api/:id", (req, res) => {
+  Item.deleteOne({
+    _id: req.params.id,
   })
-  .catch((err) => {
-    res.status(400).json(err);
-  });
+    .then(console.log("DELETED!"))
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
 
 module.exports = router;

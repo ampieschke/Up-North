@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ampieschke/Up-North-Pack-List#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "mongod": "^2.0.0",
     "mongodb": "^4.0.1",
