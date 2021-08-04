@@ -76,7 +76,7 @@ $(document).ready(() => {
         let iconcode = response.daily[i].weather[0].icon;
         let iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
 
-        $("#threeDays").append(`
+        $("#threeDaysW").append(`
           <div class="col">
             <div class="row day">
               <div class="col-4">
