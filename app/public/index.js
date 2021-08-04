@@ -28,7 +28,6 @@ function newItemSnippet(response) {
     <span class="dataTitle" data-id=${data_id}>${name}</span>
     <span class="pack" data-id=${data_id}> PACK </span>
     <span onClick="delete" class="delete" data-id=${data_id}> X </span>
-    <span>${done}<span>
     </p>
     <hr>`;
     packedSnippet = `
@@ -36,7 +35,6 @@ function newItemSnippet(response) {
     <span class="dataTitle" data-id=${data_id}>${name}</span>
     <span class="unPack" data-id=${data_id}> unPACK </span>
     <span onClick="delete" class="delete" data-id=${data_id}> X </span>
-    <span>${done}<span>
     </p>
     <hr>
     `;
@@ -123,12 +121,11 @@ theList.addEventListener("click", function (e) {
 
 packed.addEventListener("click", function (e) {
   if (e.target.matches(".unPack")) {
-    console.log("HI");
     element = e.target;
     element.parentNode.remove();
     id = element.getAttribute("data-id");
     console.log(id);
-    fetch("/api/" + id, {
+    fetch("/api/unpack/" + id, {
       method: "put",
     })
       .then(function (response) {

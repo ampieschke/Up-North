@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Item = require("../models/item.js");
+const PackedItem = require("../models/packeditem.js");
 
 router.post("/api/item", ({ body }, res) => {
   Item.create(body)
@@ -11,34 +12,18 @@ router.post("/api/item", ({ body }, res) => {
     });
 });
 
-router.post("/api/item/bulk", ({ body }, res) => {
-  Item.insertMany(body)
-    .then((dbItem) => {
-      res.json(dbItem);
-    })
-    .catch((err) => {
-      res.status(400).json(err);
-    });
-});
-
 router.put("/api/:id", (req, res) => {
-  Item.updateOne(
-    {
-      _id: req.params.id,
-    },
-    { $set: { done: true } }
-  )
+  Item.updateOne({ _id: req.params.id }, { $set: { done: true } })
     .then(console.log("Packed!"))
     .catch((err) => {
       res.status(400).json(err);
     });
 });
 
-router.put("/api/:id", (req, res) => {
+router.put("/api/unpack/:id", (req, res) => {
   Item.updateOne(
     {
       _id: req.params.id,
-      done: true,
     },
     { $set: { done: false } }
   )
