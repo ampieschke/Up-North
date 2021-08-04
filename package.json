@@ -20,6 +20,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "express": "^4.17.1",
+    "heroku": "^7.56.1",
     "mongod": "^2.0.0",
     "mongodb": "^4.0.1",
     "mongoose": "^5.13.3",

@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const Item = require("../models/item.js");
-const PackedItem = require("../models/packeditem.js");
 
 router.post("/api/item", ({ body }, res) => {
   Item.create(body)

@@ -46,24 +46,6 @@ function newItemSnippet(response) {
   }
 }
 
-// function packedItemSnippet(response) {
-//   for (var i = 0; i < response.length; i++) {
-//     let data_id = resposne[i]["_id"];
-//     let name = response[i]["name"];
-//     let done = response[i]["done"];
-//     let packed = document.getElementById("packed");
-//     snippet = `
-//     <p class="data-entry">
-//     <span class="dataTitle" data-id=${data_id}>${name}</span>
-//     <span class="unPack" data-id=${data_id}> unPACK </span>
-//     <span onClick="delete" class="delete" data-id=${data_id}> X </span>
-//     <span>${done}<span>
-//     </p>
-//     <hr>`;
-//     packed.insertAdjacentHTML("beforeend", snippet);
-//   }
-// }
-
 function clearPacklist() {
   const todoList = document.getElementById("theList");
   const packedList = document.getElementById("packed");
