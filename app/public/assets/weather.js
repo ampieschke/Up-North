@@ -62,7 +62,7 @@ $(document).ready(() => {
             day = "SUN";
         }
         $("#threeDays").append(`
-          <div class="col-4 day">
+          <div class="col day">
              <p class ="a">${day} <p>
              </div>`);
       }
@@ -77,7 +77,7 @@ $(document).ready(() => {
         let iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
 
         $("#threeDays").append(`
-          <div class="col-4">
+          <div class="col">
             <div class="row day">
               <div class="col-4">
                 <img id="wicon" src="${iconurl}" alt="Weather icon">

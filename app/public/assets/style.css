@@ -9,14 +9,14 @@
 background-color: #8a716aff !important;
 background: linear-gradient(
   to bottom,
-  #204b57ff 20%,
-  #729ea1ff 20%,
-  #729ea1ff 40%,
-  #8a716aff 40%,
-  #8a716aff 60%,
-  #f6ae2dff 60%,
-  #f6ae2dff 80%,
-  #ffb86fff 80%
+  #204b57ff 25%,
+  #729ea1ff 25%,
+  #729ea1ff 50%,
+  #8a716aff 50%,
+  #8a716aff 75%,
+  #f6ae2dff 75%,
+  #f6ae2dff 100%,
+  #ffb86fff 100%
 );
 background-size:100px;
 }
