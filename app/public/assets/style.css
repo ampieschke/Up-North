@@ -21,12 +21,6 @@ background: linear-gradient(
 background-size:100px;
 }
 
-#weatherboard{
-  /* background-image: url("./images/dock.jpg"); */
-  background-color: #cccccc;
-
-}
-
 body.cold{
   background-color: #204b57;
 }
@@ -36,9 +30,6 @@ body.warm{
 }
 
 #add-btn{
-  /* border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px; */
   background-color: #729ea1ff;
   border: none;
 }
@@ -81,6 +72,7 @@ input{
   font-size: 70px;
   color: white;
   text-align: center;
+  letter-spacing: -.15rem;
   line-height: 75%;
   padding-top: 10px;
 }
@@ -139,7 +131,7 @@ h2{
   left: 0px;
   transition: all 0.2s ease;
   font-size: 18px;
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .float-label-field.focus label {
@@ -163,7 +155,7 @@ h2{
   font-weight: 400;
   font-size: 20px;
   color: white;
-  text-align: center;
+  text-align: left;
   line-height: 70%;
 }
 
