@@ -59,12 +59,12 @@ $(document).ready(() => {
 
         $("#threeDaysW").append(`
           <div class="col">
-            <div class="row day">
+            <div class="row">
               <div class="col-4">
                 <img id="wicon" src="${iconurl}" alt="Weather icon">
               </div>
-              <div class="col-8">
-                <p class="daily">${dTemp}°</p>
+              <div class="col-8 day">
+                <p class="temp">${dTemp}°</p>
                 <p class="daily">${dWeath}</p>
               </div>
             </div>
