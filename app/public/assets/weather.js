@@ -83,8 +83,8 @@ $(document).ready(() => {
                 <img id="wicon" src="${iconurl}" alt="Weather icon">
               </div>
               <div class="col-8">
-                <p>${dTemp} Degrees</p>
-                <p>${dWeath}</p>
+                <p class="daily">${dTemp}°</p>
+                <p class="daily">${dWeath}</p>
               </div>
             </div>
           </div>`);
