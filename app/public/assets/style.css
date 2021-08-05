@@ -69,7 +69,7 @@ input{
 .a{
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
-  font-size:  10vw;
+  font-size:  12vw;
   color: white;
   text-align: center;
   letter-spacing: -.15rem;
@@ -94,6 +94,10 @@ input{
   text-align: left;
   line-height: 70%;
   letter-spacing: -.05rem;
+}
+
+#wicon{
+  padding-right: 5px;
 }
 
 h2{
