@@ -90,7 +90,7 @@ $(document).ready(() => {
           </div>`);
         weekendWeather.push(dWeath);
         weekendTemps.push(dTemp);
-        if (weekendTemps[1] > 65) {
+        if (weekendTemps[1] >= 65) {
           var bg = document.querySelector("body");
           bg.setAttribute("class", "warm");
           // const addButton = document.getElementById("btntoggle");
