@@ -2,7 +2,6 @@ $(document).ready(() => {
   getWeather();
 
   let fri = 0;
-  let day;
   let weekendWeather = []; //This will store the array of weather to determine css for display
   let weekendTemps = []; //Store Weekend Temperature to determine which packlist to use
 
@@ -47,24 +46,6 @@ $(document).ready(() => {
           break;
         case 6:
           fri = 5;
-      }
-
-      //Set the Days of the week
-      for (let i = 0; i < 3; i++) {
-        switch (i) {
-          case 0:
-            day = "FRI";
-            break;
-          case 1:
-            day = "SAT";
-            break;
-          case 2:
-            day = "SUN";
-        }
-        $("#threeDays").append(`
-          <div class="col day">
-             <p class ="a">${day} <p>
-             </div>`);
       }
 
       //Display Weather
