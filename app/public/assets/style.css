@@ -78,9 +78,11 @@ input{
 .a{
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
-  font-size: 80px;
+  font-size: 70px;
   color: white;
   text-align: center;
+  line-height: 75%;
+  padding-top: 10px;
 }
 
 h2{
