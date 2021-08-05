@@ -100,8 +100,8 @@ h2{
 
 
 /* Input Styling */
-.to-bring-input {
-  width: 500px;
+.to-bring-input {  
+  /* width: 90%; */
   padding: 20px, 10px;
   font-family: 'Roboto', sans-serif;
 }
