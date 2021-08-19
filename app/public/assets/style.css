@@ -21,6 +21,10 @@ background: linear-gradient(
 /* background-size:100px; */
 }
 
+body{
+  padding-bottom: 75px;
+}
+
 body.cold{
   background-color: #204b57;
 }
@@ -178,4 +182,22 @@ hr{
   font-size: 60%;
   transition: all 0.2s ease;
   font-weight: bold;
+}
+
+#unpackAll{
+  background-color: #729ea1ff;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:30px;
+  width: 80%;
+}
+
+footer {
+  background-color: #204b57ff;
+  color: #729ea1ff;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  height: 60px;
 }

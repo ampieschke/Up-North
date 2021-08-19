@@ -101,13 +101,35 @@ theList.addEventListener("click", function (e) {
   getResults();
 });
 
-packed.addEventListener("click", function (e) {
-  if (e.target.matches(".unPack")) {
+unpackAll.addEventListener("click", function (e) {
+  if (e.target.matches("#unPack")) {
     element = e.target;
     element.parentNode.remove();
     id = element.getAttribute("data-id");
     console.log(id);
     fetch("/api/unpack/" + id, {
+      method: "put",
+    })
+      .then(function (response) {
+        if (response.status !== 200) {
+          console.log(
+            "Looks like there was a problem. Status Code: " + response.status
+          );
+          return;
+        }
+      })
+      .catch(function (err) {
+        console.log("Fetch Error :-S", err);
+      });
+  }
+  clearPacklist();
+  getResults();
+});
+
+packed.addEventListener("click", function (e) {
+  if (e.target.matches(".unpackAll")) {
+    console.log("HI!");
+    fetch("/api/unpack", {
       method: "put",
     })
       .then(function (response) {

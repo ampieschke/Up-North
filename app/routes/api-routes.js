@@ -32,6 +32,14 @@ router.put("/api/unpack/:id", (req, res) => {
     });
 });
 
+router.put("api/unpack", (req, res) => {
+  Item.updateMany({}, { $set: { done: false } })
+    .then(console.log("unPacked!"))
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
+
 router.get("/api/item", (req, res) => {
   Item.find({})
     .sort({ date: -1 })

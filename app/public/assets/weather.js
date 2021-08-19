@@ -50,6 +50,7 @@ $(document).ready(() => {
 
       //Display Weather
       for (let i = fri; i < 3 + fri; i++) {
+        console.log(response.daily[i]);
         let dTemp = Math.floor(
           (response.daily[i].temp.day - 273.15) * 1.8 + 32
         );
@@ -60,7 +61,7 @@ $(document).ready(() => {
         $("#threeDaysW").append(`
           <div class="col">
             <div class="row">
-              <div class="col-4">
+              <div class="col-3">
                 <img id="wicon" src="${iconurl}" alt="Weather icon">
               </div>
               <div class="col-8 day">
