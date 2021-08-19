@@ -54,6 +54,7 @@ function clearPacklist() {
 }
 getResults();
 
+//DELETE BUTTONS
 allOfIt.addEventListener("click", function (e) {
   if (e.target.matches(".delete")) {
     element = e.target;
@@ -76,6 +77,7 @@ allOfIt.addEventListener("click", function (e) {
   }
 });
 
+//PACK BUTTONS
 theList.addEventListener("click", function (e) {
   if (e.target.matches(".pack")) {
     element = e.target;
@@ -101,8 +103,10 @@ theList.addEventListener("click", function (e) {
   getResults();
 });
 
-unpackAll.addEventListener("click", function (e) {
-  if (e.target.matches("#unPack")) {
+//unPACK BUTTONS
+packed.addEventListener("click", function (e) {
+  if (e.target.matches(".unPack")) {
+    console.log("hi");
     element = e.target;
     element.parentNode.remove();
     id = element.getAttribute("data-id");
@@ -126,27 +130,27 @@ unpackAll.addEventListener("click", function (e) {
   getResults();
 });
 
-packed.addEventListener("click", function (e) {
-  if (e.target.matches(".unpackAll")) {
-    console.log("HI!");
-    fetch("/api/unpack", {
-      method: "put",
-    })
-      .then(function (response) {
-        if (response.status !== 200) {
-          console.log(
-            "Looks like there was a problem. Status Code: " + response.status
-          );
-          return;
-        }
-      })
-      .catch(function (err) {
-        console.log("Fetch Error :-S", err);
-      });
-  }
-  clearPacklist();
-  getResults();
-});
+// unpackAll.addEventListener("click", function (e) {
+//   if (e.target.matches(".unpackAll")) {
+//     console.log("HI!");
+//     fetch("/api/unpack", {
+//       method: "put",
+//     })
+//       .then(function (response) {
+//         if (response.status !== 200) {
+//           console.log(
+//             "Looks like there was a problem. Status Code: " + response.status
+//           );
+//           return;
+//         }
+//       })
+//       .catch(function (err) {
+//         console.log("Fetch Error :-S", err);
+//       });
+//   }
+//   clearPacklist();
+//   getResults();
+// });
 
 document.querySelector("#add-btn").addEventListener("click", function (event) {
   event.preventDefault();

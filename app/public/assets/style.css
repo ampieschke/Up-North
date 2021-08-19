@@ -1,4 +1,4 @@
-/* CSS HEX
+/* HEX codes
 --cadet-blue: #729ea1ff;
 --cinereous: #8a716aff;
 --midnight-green-eagle-green: #204b57ff;
@@ -101,7 +101,7 @@ input{
 }
 
 #wicon{
-  padding-right: 5px;
+  margin-right: 10px;
 }
 
 h2{
@@ -114,6 +114,7 @@ h2{
 
 .day{
   border-left: white 1px solid;
+  margin-left: 2px;
 
 }
 
