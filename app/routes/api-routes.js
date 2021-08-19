@@ -11,7 +11,7 @@ router.post("/api/item", ({ body }, res) => {
     });
 });
 
-router.put("/api/:id", (req, res) => {
+router.put("/api/pack/:id", (req, res) => {
   Item.updateOne({ _id: req.params.id }, { $set: { done: true } })
     .then(console.log("Packed!"))
     .catch((err) => {
@@ -32,13 +32,13 @@ router.put("/api/unpack/:id", (req, res) => {
     });
 });
 
-// router.put("api/unpack", (req, res) => {
-//   Item.updateMany({}, { $set: { done: false } })
-//     .then(console.log("unPacked!"))
-//     .catch((err) => {
-//       res.status(400).json(err);
-//     });
-// });
+router.put("/api/unpack", (req, res) => {
+  Item.updateMany({}, { $set: { done: false } })
+    .then(console.log("unPacked it all!"))
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
 
 router.get("/api/item", (req, res) => {
   Item.find({})
@@ -50,29 +50,6 @@ router.get("/api/item", (req, res) => {
       res.status(400).json(err);
     });
 });
-
-// router.get("api/undone", (req, res) => {
-//   Item.find({ done: false })
-//     .sort({ date: -1 })
-//     .then((dbItem) => {
-//       res.json(dbItem);
-//     })
-//     .catch((err) => {
-//       res.status(400).json(err);
-//     });
-// });
-
-// router.get("api/:done", (req, res) => {
-//   Item.where("done")
-//     .equals(true)
-//     .sort({ date: -1 })
-//     .then((dbItem) => {
-//       res.json(dbItem);
-//     })
-//     .catch((err) => {
-//       res.status(400).json(err);
-//     });
-// });
 
 router.delete("/api/:id", (req, res) => {
   Item.deleteOne({
