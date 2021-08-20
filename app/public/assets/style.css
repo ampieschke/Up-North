@@ -21,6 +21,10 @@ background: linear-gradient(
 /* background-size:100px; */
 }
 
+.navtext{
+  color: white !important;
+}
+
 body{
   padding-bottom: 75px;
 }
@@ -31,6 +35,63 @@ body.cold{
 
 body.warm{
   background-color: #FFB86F;
+}
+
+
+.a{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size:  12vw;
+  color: white;
+  text-align: center;
+  letter-spacing: -.15rem;
+  line-height: 75%;
+  padding-top: 10px;
+}
+
+
+#wicon{
+  margin-right: 10px;
+}
+.temp{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size:  4vw;
+  color: white;
+  text-align: left;
+  line-height: 60%;
+}
+
+.daily{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size:  3vw;
+  color: white;
+  text-align: left;
+  line-height: 70%;
+  letter-spacing: -.05rem;
+}
+
+h2{
+  color: white;
+  font-family:'Roboto', sans-serif;
+  font-weight: 700;
+  padding-left: 50px;
+  margin: 20px;
+}
+
+.day{
+  border-left: white 1px solid;
+  margin-left: 2px;
+
+}
+
+input{
+  height: 38px;
+}
+
+.data-entry{
+  padding-left: 5%;
 }
 
 #add-btn{
@@ -62,61 +123,6 @@ body.warm{
   padding-left: 10px;
 }
 
-input{
-  height: 38px;
-}
-
-.data-entry{
-  padding-left: 5%;
-}
-
-.a{
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  font-size:  12vw;
-  color: white;
-  text-align: center;
-  letter-spacing: -.15rem;
-  line-height: 75%;
-  padding-top: 10px;
-}
-
-.temp{
-  font-family: 'Roboto', sans-serif;
-  font-weight: 600;
-  font-size:  4vw;
-  color: white;
-  text-align: left;
-  line-height: 60%;
-}
-
-.daily{
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size:  3vw;
-  color: white;
-  text-align: left;
-  line-height: 70%;
-  letter-spacing: -.05rem;
-}
-
-#wicon{
-  margin-right: 10px;
-}
-
-h2{
-  color: white;
-  font-family:'Roboto', sans-serif;
-  font-weight: 700;
-  padding-left: 50px;
-  margin: 20px;
-}
-
-.day{
-  border-left: white 1px solid;
-  margin-left: 2px;
-
-}
 
 hr{
   width: 80%;
@@ -185,7 +191,7 @@ hr{
   font-weight: bold;
 }
 
-#unpackAll{
+#unpackeverything{
   background-color: #729ea1ff;
   border: none;
   margin-left: auto;

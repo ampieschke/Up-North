@@ -18,10 +18,8 @@ $(document).ready(() => {
 
       // Show Current Weather Conditions
       var fTemp = Math.floor((response.current.temp - 273.15) * 1.8 + 32);
-      $("#temp").text("Temp: " + fTemp + " Degrees");
-      $("#description").text(
-        "Current Weather: " + response.current.weather[0].main
-      );
+      $("#temp").text(fTemp + "°");
+      $("#description").text(response.current.weather[0].main);
 
       //Gather the Weekend Weather
       //Determine what day today is, so that we can find where in the API array Friday is.
