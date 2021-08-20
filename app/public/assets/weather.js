@@ -27,29 +27,30 @@ $(document).ready(() => {
       //Determine what day today is, so that we can find where in the API array Friday is.
       switch (new Date().getDay()) {
         case 0:
-          fri = 4;
+          fri = 5;
           break;
         case 1:
-          fri = 3;
+          fri = 4;
           break;
         case 2:
-          fri = 2;
+          fri = 3;
           break;
         case 3:
-          fri = 1;
+          fri = 2;
           break;
         case 4:
-          fri = 0;
+          fri = 1;
           break;
         case 5:
-          fri = 6;
+          fri = 0;
           break;
         case 6:
-          fri = 5;
+          fri = 6;
       }
-
+      console.log(fri);
       //Display Weather
       for (let i = fri; i < 3 + fri; i++) {
+        console.log(i);
         console.log(response.daily[i]);
         let dTemp = Math.floor(
           (response.daily[i].temp.day - 273.15) * 1.8 + 32

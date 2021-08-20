@@ -11,6 +11,9 @@ const ItemSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  temp: {
+    type: String,
+  },
   date: {
     type: Date,
     default: Date.now,
