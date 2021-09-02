@@ -52,6 +52,8 @@ body.warm{
 
 #wicon{
   /* margin-right: 10px; */
+  width: 100%;
+  height: auto;
 }
 .temp{
   font-family: 'Roboto', sans-serif;
