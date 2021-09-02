@@ -80,6 +80,10 @@ h2{
   margin: 20px;
 }
 
+.cold{
+  color: white;
+}
+
 .day{
   border-left: white 1px solid;
   margin-left: 2px;

@@ -48,6 +48,7 @@ $(document).ready(() => {
       //Display Weather
       for (let i = fri; i < 3 + fri; i++) {
         console.log(i);
+        console.log(3 + fri);
         console.log(response.daily[i]);
         let dTemp = Math.floor(
           (response.daily[i].temp.day - 273.15) * 1.8 + 32
@@ -81,7 +82,10 @@ $(document).ready(() => {
           //   <span class="fa fa-fire"></span> Add an Item</button>
           //     `);
         } else if (weekendTemps[1] < 65) {
+          var bg = document.querySelector("body");
+          var txt = document.getElementById("theList");
           bg.setAttribute("class", "cold");
+          txt.setAttribute("class", "cold");
           // const addButton = document.getElementById("btntoggle");
           // addButton.innerHTML = "";
           // $("#btntoggle").append(`
