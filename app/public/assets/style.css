@@ -51,7 +51,7 @@ body.warm{
 
 
 #wicon{
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 .temp{
   font-family: 'Roboto', sans-serif;
@@ -86,7 +86,7 @@ h2{
 
 .day{
   border-left: white 1px solid;
-  margin-left: 2px;
+  /* margin-left: 2px; */
 
 }
 
