@@ -6,7 +6,7 @@
   This app is to create a reusable packing app for traveling to Horton Bay, MI. When a user logs in, they will be provided with the coming weekend's weather and a packing list.
 
   ### Screenshot
-  ![Screenshot](app\public\assets\images\upNorth.PNG)
+  ![Screenshot](app/public/assets/images/upNorth.PNG)
 
   ### Live
   [Deployed on Heroku](https://https://upnorth.herokuapp.com/)
